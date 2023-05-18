@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.dashboard.index');
+    return view('user.pages.dashboard.index');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.pages.dashboard.index');
+    })->name('dashboard');;
 });

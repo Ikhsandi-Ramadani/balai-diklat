@@ -1,0 +1,10 @@
+   <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+   <script src="{{ asset('front/js/popper.min.js') }}"></script>
+   <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+   <script src="{{ asset('front/js/select2.min.js') }}"></script>
+   <script src="{{ asset('front/js/slick.js') }}"></script>
+   <script src="{{ asset('front/js/moment.min.js') }}"></script>
+   <script src="{{ asset('front/js/daterangepicker.js') }}"></script>
+   <script src="{{ asset('front/js/summernote.min.js') }}"></script>
+   <script src="{{ asset('front/js/metisMenu.min.js') }}"></script>
+   <script src="{{ asset('front/js/custom.js') }}"></script>
