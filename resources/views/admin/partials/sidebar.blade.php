@@ -57,7 +57,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Page -->
-        <li class="menu-item active">
+        <li class="menu-item {{ request()->is('admin/') ? 'active' : '' }}">
             <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Page 1">Page 1</div>
@@ -67,6 +67,23 @@
             <a href="page-2.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Page 2">Page 2</div>
+            </a>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Master Data</span>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/kategori*') ? 'active' : '' }}">
+            <a href="{{ route('kategori.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>Kategori</div>
+            </a>
+        </li>
+        <li class="menu-item {{ request()->is('admin/pelatihan*') ? 'active' : '' }}">
+            <a href="{{ route('pelatihan.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>Pelatihan</div>
             </a>
         </li>
     </ul>

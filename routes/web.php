@@ -1,17 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PelatihanController;
 
 Route::get('/', function () {
     return view('user.pages.dashboard.index');
@@ -20,5 +11,8 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.pages.dashboard.index');
-    })->name('dashboard');;
+    })->name('dashboard');
+
+    Route::resource('kategori', CategoryController::class);
+    Route::resource('pelatihan', PelatihanController::class);
 });
