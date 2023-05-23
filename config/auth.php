@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'peserta' => [
+            'redirectTo' => 'user.login',
+            'driver' => 'session',
+            'provider' => 'peserta',
+        ],
     ],
 
     /*
@@ -63,6 +68,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'peserta' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Peserta::class,
         ],
 
         // 'users' => [

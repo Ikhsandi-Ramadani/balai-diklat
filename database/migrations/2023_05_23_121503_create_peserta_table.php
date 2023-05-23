@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelatihans', function (Blueprint $table) {
+        Schema::create('peserta', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('nik')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('no_telp');
+            $table->longText('alamat');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelatihans');
+        Schema::dropIfExists('pesertas');
     }
 };

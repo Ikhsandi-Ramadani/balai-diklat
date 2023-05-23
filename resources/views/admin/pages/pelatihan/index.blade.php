@@ -1,66 +1,126 @@
- @extends('admin.base')
+@extends('admin.base')
 
- @section('title', 'Pelatihan')
+@section('title', 'Pelatihan')
 
- @section('content')
-     <div class="container-xxl flex-grow-1 container-p-y">
-         <h4 class="fw-bold py-3 mb-4">Pelatihan</h4>
+@push('custom-style')
+    <link rel="stylesheet" href="{{ asset('back/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
+@endpush
 
-         <div class="d-flex flex-wrap justify-content-between flex-md-row flex-column">
-             <h5 class="pb-1 mb-4">List Pelatihan</h5>
-             <button type="button" class="btn btn-label-primary pb-1 mb-4">
-                 <span class="tf-icons bx bx-plus"></span>&nbsp; Tambah Pelatihan
-             </button>
-         </div>
+@section('content')
+    <div class="container-xxl flex-grow-1 container-p-y">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        <h4 class="fw-bold py-3 mb-4">Pelatihan</h4>
 
-         <div class="row mb-5">
-             <div class="col-md-6">
-                 <div class="card mb-3">
+        <!-- DataTable with Buttons -->
+        <div class="card">
+            <div class="card-header flex-column flex-md-row">
+                <div class="text-end pt-3 pt-md-0">
+                    <a class="btn btn-primary" href="{{ route('pelatihan.create') }}"><span><i
+                                class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block">Tambah
+                                Pelatihan</span></span>
+                    </a>
+                </div>
+            </div>
+            <div class="card-datatable text-nowrap">
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Gambar</th>
+                            <th>Nama</th>
+                            <th>Kategori</th>
+                            <th>Pendaftaran</th>
+                            <th>Pelaksanaan</th>
+                            <th>Peserta</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pelatihans as $pelatihan)
+                            <tr>
+                                <td><img src="/images/pelatihan/{{ $pelatihan->gambar }}" width="100" height="">
+                                </td>
+                                <td>{{ $pelatihan->nama }}</td>
+                                <td>{{ $pelatihan->category->nama }}</td>
+                                <td>{{ \Carbon\Carbon::parse($pelatihan->awal_pendaftaran)->isoFormat('D') }} -
+                                    {{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }} -
+                                    {{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</td>
+                                <td>20 Orang</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        href="{{ route('pelatihan.edit', $pelatihan->id) }}"><span><i
+                                                class="bx bx-edit me-sm-2"></i> <span
+                                                class="d-none d-sm-inline-block">Edit</span></span>
+                                    </a>
+                                    <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#delete-modal-{{ $pelatihan->id }}"><span><i
+                                                class="bx bx-trash me-sm-2"></i> <span
+                                                class="d-none d-sm-inline-block">Delete</span></span>
+                                    </button>
+                                </td>
+                            </tr>
 
-                     <div class="row g-0">
-                         <div class="col-md-4">
-                             <img class="card-img card-img-left" src="{{ asset('back/img/elements/12.jpg') }}"
-                                 alt="Card image" />
-                         </div>
-                         <div class="col-md-8">
-                             <div class="card-body">
-                                 <div class="d-flex flex-wrap justify-content-between flex-md-row flex-column">
-                                     <h5 class="card-title">List Pelatihan</h5>
-                                     <div class="btn-group">
-                                         <button type="button" class="btn btn-primary">Aksi</button>
-                                         <button type="button"
-                                             class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                             data-bs-toggle="dropdown"></button>
-                                         <div class="dropdown-menu">
-                                             <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                             <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                             <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                                             <div class="dropdown-divider"></div>
-                                             <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <p class="card-text">
-                                     {{ Str::words(
-                                         " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quos nulla quidem dicta
-                                                                                                                                                                                                                                                                                                                                                                                  maxime veritatis fuga tempora odio accusantium, molestias laudantium voluptatibus quis
-                                                                                                                                                                                                                                                                                                                                                                                  distinctio magni quibusdam, reiciendis atque. Ipsum, adipisci.
-                                                                                                                                                                                                                                                                                                                                                                                  Deleniti alias ullam corporis tenetur ipsum placeat nam optio pariatur obcaecati autem,
-                                                                                                                                                                                                                                                                                                                                                                                  officia delectus architecto, voluptatibus nesciunt consequatur magnam excepturi et
-                                                                                                                                                                                                                                                                                                                                                                                  cumque. Enim, asperiores facere quas eos minus maiores dolore!",
-                                         10,
-                                     ) }}
-                                 </p>
-                                 <p class="card-text lh-1">
-                                     Pendaftaran : 27 - 28 Agustus 2023 <br>
-                                     Pelatihan : 27 - 28 Agustus 2023 <br>
-                                     Peserta : 28 Orang
-                                 </p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- @endsection
+                            {{-- Modal Delete --}}
+                            <div class="modal fade" id="delete-modal-{{ $pelatihan->id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Pelatihan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('pelatihan.destroy', $pelatihan->id) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="hidden" name="id" id="id"
+                                                value="{{ $pelatihan->id }}">
+                                            <div class="modal-body">
+                                                Anda yakin ingin menghapus Pelatihan <b>{{ $pelatihan->nama }}</b> ini ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tutup</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-outline-danger ml-1" id="btn-save">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Yakin</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Modal --}}
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+@endsection
+
+@push('custom-script')
+    <!-- Vendors JS -->
+    <script src="{{ asset('back/vendor/libs/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('back/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+    <script src="{{ asset('back/vendor/libs/datatables-responsive/datatables.responsive.js') }}"></script>
+    <script src="{{ asset('back/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                scrollX: true,
+            });
+        });
+    </script>
+@endpush
