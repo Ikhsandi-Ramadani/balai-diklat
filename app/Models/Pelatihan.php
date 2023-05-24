@@ -27,4 +27,9 @@ class Pelatihan extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function peserta_detail()
+    {
+        return $this->hasMany(PesertaDetail::class);
+    }
 }

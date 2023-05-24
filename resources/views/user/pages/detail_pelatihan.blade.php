@@ -70,13 +70,24 @@
                             <div class="eld mb-3">
                                 <ul class="edu_list right">
                                     <li><i class="ti-user"></i>Pendaftar Saat Ini:<strong>1740 Orang</strong></li>
-                                    <li><i class="ti-files"></i>Jadwal Pendaftaran :<strong>{{ \Carbon\Carbon::parse($pelatihan->awal_pendaftaran)->isoFormat('D') }}-{{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</strong></li>
-                                    <li><i class="ti-game"></i>Jadwal Pelatihan :<strong>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }}-{{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</strong></li>
+                                    <li><i class="ti-files"></i>Jadwal Pendaftaran
+                                        :<strong>{{ \Carbon\Carbon::parse($pelatihan->awal_pendaftaran)->isoFormat('D') }}-{{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</strong>
+                                    </li>
+                                    <li><i class="ti-game"></i>Jadwal Pelatihan
+                                        :<strong>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }}-{{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</strong>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="ed_view_link">
-                            <a href="#" class="btn theme-bg enroll-btn">Daftar Sekarang<i class="ti-angle-right"></i></a>
+                            @if (auth('peserta')->check())
+                                <a class="btn theme-bg enroll-btn"
+                                    href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}">Daftar
+                                    Sekarang<i class="ti-angle-right"></i></a>
+                            @else
+                                <a class="btn theme-bg enroll-btn" href="#" onclick="alert()">Daftar
+                                    Sekarang<i class="ti-angle-right"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -108,3 +119,17 @@
     </section>
     <!-- ============================ Call To Action End ================================== -->
 @endsection
+
+@push('custom-script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        function alert() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal...',
+                text: 'Anda Harus Membuat Akun Terlebih Dahulu!',
+            })
+        }
+    </script>
+@endpush

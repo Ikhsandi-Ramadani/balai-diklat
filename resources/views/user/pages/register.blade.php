@@ -31,6 +31,14 @@
                                         <input type="text" name="nama" class="form-control" required />
                                     </div>
                                     <div class="form-group">
+                                        <label>Tempat Lahir</label>
+                                        <input type="text" name="tempat_lahir" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal Lahir</label>
+                                        <input type="text" name="tanggal_lahir" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control" required />
                                     </div>

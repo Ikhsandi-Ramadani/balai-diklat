@@ -7,7 +7,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('kategori.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.kategori.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="row">
@@ -43,7 +43,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('kategori.update', $category->id) }}" method="post"
+                            <form action="{{ route('admin.kategori.update', $category->id) }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -80,7 +80,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button>
                         </div>
-                        <form action="{{ route('kategori.destroy', $category->id) }}" method="post">
+                        <form action="{{ route('admin.kategori.destroy', $category->id) }}" method="post">
                             @method('DELETE')
                             @csrf
                             <input type="hidden" name="id" id="id" value="{{ $category->id }}">

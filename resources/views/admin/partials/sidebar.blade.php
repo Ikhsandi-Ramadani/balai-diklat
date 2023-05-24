@@ -75,13 +75,13 @@
         </li>
 
         <li class="menu-item {{ request()->is('admin/kategori*') ? 'active' : '' }}">
-            <a href="{{ route('kategori.index') }}" class="menu-link">
+            <a href="{{ route('admin.kategori.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div>Kategori</div>
             </a>
         </li>
         <li class="menu-item {{ request()->is('admin/pelatihan*') ? 'active' : '' }}">
-            <a href="{{ route('pelatihan.index') }}" class="menu-link">
+            <a href="{{ route('admin.pelatihan.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div>Pelatihan</div>
             </a>

@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header flex-column flex-md-row">
                 <div class="text-end pt-3 pt-md-0">
-                    <a class="btn btn-primary" href="{{ route('pelatihan.create') }}"><span><i
+                    <a class="btn btn-primary" href="{{ route('admin.pelatihan.create') }}"><span><i
                                 class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block">Tambah
                                 Pelatihan</span></span>
                     </a>
@@ -50,17 +50,22 @@
                                     {{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }} -
                                     {{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</td>
-                                <td>20 Orang</td>
+                                @php
+                                    $jumlah = App\Models\PesertaDetail::where('pelatihan_id', $pelatihan->id)->count();
+                                @endphp
+                                <td>{{ $jumlah }} Peserta</td>
                                 <td>
+                                    <a class="btn btn-warning btn-sm"
+                                        href="{{ route('admin.pelatihan.peserta', $pelatihan->id) }}"><span><i
+                                                class='bx bxs-user-rectangle'></i></span>
+                                    </a>
                                     <a class="btn btn-primary btn-sm"
-                                        href="{{ route('pelatihan.edit', $pelatihan->id) }}"><span><i
-                                                class="bx bx-edit me-sm-2"></i> <span
-                                                class="d-none d-sm-inline-block">Edit</span></span>
+                                        href="{{ route('admin.pelatihan.edit', $pelatihan->id) }}"><span><i
+                                                class="bx bx-edit "></i></span>
                                     </a>
                                     <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal"
                                         data-bs-target="#delete-modal-{{ $pelatihan->id }}"><span><i
-                                                class="bx bx-trash me-sm-2"></i> <span
-                                                class="d-none d-sm-inline-block">Delete</span></span>
+                                                class="bx bx-trash "></i></span>
                                     </button>
                                 </td>
                             </tr>
@@ -76,7 +81,8 @@
                                                 aria-label="Close">
                                             </button>
                                         </div>
-                                        <form action="{{ route('pelatihan.destroy', $pelatihan->id) }}" method="post">
+                                        <form action="{{ route('admin.pelatihan.destroy', $pelatihan->id) }}"
+                                            method="post">
                                             @method('DELETE')
                                             @csrf
                                             <input type="hidden" name="id" id="id"

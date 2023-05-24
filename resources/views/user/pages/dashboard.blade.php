@@ -1,5 +1,11 @@
 @extends('user.base')
 
+@push('custom-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
+
 @section('content')
     <!-- ============================ Dashboard: Dashboard Start ================================== -->
     <section class="gray pt-4">
@@ -64,6 +70,16 @@
                                                     value="{{ $peserta->nama }}" />
                                             </div>
                                             <div class="form-group smalls">
+                                                <label>Tempat Lahir</label>
+                                                <input type="text" name="tempat_lahir" class="form-control"
+                                                    value="{{ $peserta->tempat_lahir }}" />
+                                            </div>
+                                            <div class="form-group smalls">
+                                                <label>Tanggal Lahir</label>
+                                                <input type="date" name="tanggal_lahir" class="form-control"
+                                                    value="{{ $peserta->tanggal_lahir }}" />
+                                            </div>
+                                            <div class="form-group smalls">
                                                 <label>Email</label>
                                                 <input type="email" class="form-control" value="{{ $peserta->email }}"
                                                     name="email" />
@@ -92,89 +108,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-xl-5 col-lg-6 col-md-12">
-                            <div class="dashboard_wrap">
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
-                                        <h6 class="m-0">Kelengkapan Berkas</h6>
-                                        <small>**Semua berkas dalam bentuk file pdf kecuali foto</small>
-                                    </div>
-                                </div>
-
-                                <div class="row justify-content-center">
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <form>
-                                            <div class="form-group smalls">
-                                                <label>FC Kartu Keluarga </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control"
-                                                        value="{{ $peserta->peserta_detail->fc_kk != null ? $peserta->peserta_detail->fc_kk : '' }}" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <label>FC KTP </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <label>Surat Ket. Berbadan Sehat </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <label>Surat Ket. Usaha </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <label>FC Ijazah Terakhir </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <label>Foto 3x4 (Latar Merah) </label>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="file" class="form-control" />
-                                                    <div
-                                                        class="rounded-circle bg-light-success theme-cl p-2 ml-2 small d-flex align-items-center justify-content-center">
-                                                        <i class="fas fa-check"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group smalls">
-                                                <button class="btn theme-bg text-white" type="button">Simpan</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> --}}
-
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="dashboard_wrap">
 
@@ -186,7 +119,77 @@
 
                                 <div class="row justify-content-center">
                                     <div class="col-xl-12 col-lg-12 col-md-12">
-
+                                        <div class="crs_grid">
+                                            <div class="crs_grid_thumb">
+                                                <a href="{{ route('user.detail-pelatihan', $pelatihan->slug) }}"
+                                                    class="crs_detail_link">
+                                                    <img src="/images/pelatihan/{{ $pelatihan->gambar }}"
+                                                        class="img-fluid rounded" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="crs_grid_caption">
+                                                <div class="crs_flex">
+                                                    <div class="crs_fl_first">
+                                                        <div class="crs_cates cl_8">
+                                                            <span>{{ $pelatihan->category->nama }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="crs_fl_last">
+                                                        <div class="crs_inrolled">
+                                                            <strong>{{ $jumlah }}</strong>Pendaftar
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="crs_title">
+                                                    <h4><a href="{{ route('user.detail-pelatihan', $pelatihan->slug) }}"
+                                                            class="crs_title_link">{{ $pelatihan->nama }}</a></h4>
+                                                </div>
+                                                <div class="crs_info_detail">
+                                                    <ul class="d-flex justify-content-between">
+                                                        <li><i class="fa fa-calendar text-danger"></i><span>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }}
+                                                                -
+                                                                {{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</span>
+                                                        </li>
+                                                        <li><i class="fa fa-signal text-warning"></i><span>Pemula</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="crs_grid_foot">
+                                                <div class="crs_flex">
+                                                    <div class="crs_fl_first">
+                                                        <div class="crs_tutor">
+                                                            <div class="crs_tutor_name">
+                                                                <h6>Status verifikasi :
+                                                                    @if ($peserta->peserta_detail->is_approve == 'pending')
+                                                                        <span class="badge badge-warning">Pending</span>
+                                                                    @elseif ($peserta->peserta_detail->is_approve == 'disetujui')
+                                                                        <span class="badge badge-success">Disetujui</span>
+                                                                    @else
+                                                                        <span class="badge badge-danger">Ditolak</span>
+                                                                    @endif
+                                                                </h6>
+                                                                <h6>Keterangan : {{ $peserta->peserta_detail->keterangan }}
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="crs_fl_last">
+                                                        <div class="crs_linkview">
+                                                            @if ($peserta->peserta_detail->is_approve == 'disetujui')
+                                                                <a href="{{ route('peserta.cetak', $peserta->id) }}"
+                                                                    class="btn btn_view_detail btn-success text-light"><i
+                                                                        class="fa-solid fa-print"></i> Cetak</a>
+                                                            @else
+                                                                <a href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}"
+                                                                    class="btn btn_view_detail btn-warning text-light"><i
+                                                                        class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

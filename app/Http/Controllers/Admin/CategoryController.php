@@ -78,6 +78,9 @@ class CategoryController extends Controller
         $slug = Str::slug($request->nama);
 
         if ($request->file('icon')) {
+            $file_path = public_path() . "/images/kategori/" . $category->icon;
+            unlink($file_path);
+
             $icon = $request->file('icon');
             $destinationPath = 'images/kategori';
             $profileImage = $slug . "." . $icon->getClientOriginalExtension();
@@ -104,6 +107,9 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $category = Category::findorfail($id);
+        $file_path = public_path() . "/images/kategori/" . $category->icon;
+        unlink($file_path);
+
         $category->delete();
         return redirect()->back();
     }

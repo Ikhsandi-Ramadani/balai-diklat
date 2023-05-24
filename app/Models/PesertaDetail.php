@@ -22,10 +22,15 @@ class PesertaDetail extends Model
      *
      * @var array
      */
-    protected $fillable = ['peserta_id', 'fc_kk', 'fc_ktp', 'surat_sehat', 'surat_usaha', 'ijazah', 'foto'];
+    protected $fillable = ['peserta_id', 'pelatihan_id', 'fc_kk', 'fc_ktp', 'surat_sehat', 'surat_usaha', 'ijazah', 'foto', 'is_approve', 'keterangan'];
 
     public function peserta()
     {
         return $this->belongsTo(Peserta::class);
+    }
+
+    public function pelatihan()
+    {
+        return $this->belongsTo(Pelatihan::class);
     }
 }

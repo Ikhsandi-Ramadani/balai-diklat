@@ -6,8 +6,8 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pelatihan/</span> Edit</h4>
         <div class="card mb-4">
-            <form class="card-body" action="{{ route('pelatihan.update', $pelatihan->id) }}" enctype="multipart/form-data"
-                method="post">
+            <form class="card-body" action="{{ route('admin.pelatihan.update', $pelatihan->id) }}"
+                enctype="multipart/form-data" method="post">
                 @csrf
                 @method('PUT')
                 <div class="row g-3">

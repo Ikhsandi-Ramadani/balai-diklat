@@ -46,6 +46,8 @@ class AuthController extends Controller
         ]);
         Peserta::create([
             'nama' => $request->nama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'nik' => $request->nik,
