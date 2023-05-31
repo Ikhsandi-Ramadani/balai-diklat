@@ -36,15 +36,26 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Lahir</label>
-                                        <input type="text" name="tanggal_lahir" class="form-control" required />
+                                        <input type="date" name="tanggal_lahir" class="form-control" required />
                                     </div>
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" name="email" class="form-control" required />
+                                        <label>Jenis Kelamin</label>
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-6">
+                                                <input id="jekel1" class="checkbox-custom form-control" value="P"
+                                                    name="jekel" type="radio">
+                                                <label for="jekel1" class="checkbox-custom-label">Perempuan</label>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-6">
+                                                <input id="jekel2" class="checkbox-custom form-control" value="L"
+                                                    name="jekel" type="radio">
+                                                <label for="jekel2" class="checkbox-custom-label">Laki-laki</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="password" class="form-control" required />
+                                        <label>Pekerjaan</label>
+                                        <input type="text" name="pekerjaan" class="form-control" required />
                                     </div>
                                     <div class="form-group">
                                         <label>No. Telpon</label>
@@ -53,6 +64,14 @@
                                     <div class="form-group">
                                         <label>Alamat</label>
                                         <textarea name="alamat" cols="30" rows="10" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control" required />
                                     </div>
                                     <div class="form-group">
                                         <button type="submit"

@@ -66,6 +66,11 @@
                                         <input type="file" name="surat_sehat" class="form-control" required />
                                     </div>
                                     <div class="form-group">
+                                        <label>Nama Usaha</label>
+                                        <input type="text" name="nama_usaha" class="form-control" required
+                                            value="{{ $peserta->nama_usaha }}" />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Surat Ket. Usaha</label>
                                         <input type="file" name="surat_usaha" class="form-control" required />
                                     </div>

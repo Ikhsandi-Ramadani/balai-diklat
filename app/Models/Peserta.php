@@ -25,7 +25,7 @@ class Peserta extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['nama', 'nik', 'tempat_lahir', 'tanggal_lahir', 'email', 'password', 'no_telp', 'alamat'];
+    protected $fillable = ['nama', 'nik', 'tempat_lahir', 'tanggal_lahir', 'email', 'password', 'no_telp', 'alamat', 'jekel', 'pekerjaan'];
 
     public function peserta_detail()
     {

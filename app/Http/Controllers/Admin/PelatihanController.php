@@ -178,6 +178,6 @@ class PelatihanController extends Controller
             $zip->close();
         }
 
-        return response()->download(public_path($fileName));
+        return response()->download(public_path($fileName))->deleteFileAfterSend(true);
     }
 }

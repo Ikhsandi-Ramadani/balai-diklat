@@ -16,9 +16,7 @@ class DashboardController extends Controller
     {
         $id = Auth::guard('peserta')->user()->id;
         $peserta = Peserta::where('id', $id)->first();
-        $pelatihan = $peserta->peserta_detail->pelatihan;
-        $jumlah = PesertaDetail::where('pelatihan_id', $pelatihan->id)->count();
-        return view('user.pages.dashboard', compact('peserta', 'pelatihan', 'jumlah'));
+        return view('user.pages.dashboard', compact('peserta'));
     }
 
     public function editProfil(Request $request, $id)
@@ -35,6 +33,8 @@ class DashboardController extends Controller
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
+                'jekel' => $request->jekel,
+                'pekerjaan' => $request->pekerjaan,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'nik' => $request->nik,
@@ -46,6 +46,8 @@ class DashboardController extends Controller
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
+                'jekel' => $request->jekel,
+                'pekerjaan' => $request->pekerjaan,
                 'email' => $request->email,
                 'nik' => $request->nik,
                 'no_telp' => $request->no_telp,

@@ -20,6 +20,10 @@ Route::prefix('/')->group(function () {
     Route::get('/pelatihan/{slug}', [FrontendController::class, 'detail_pelatihan'])->name('user.detail-pelatihan');
     Route::get('/blog', [FrontendController::class, 'blog'])->name('user.blog');
 
+    Route::get('/qrcode', function () {
+        return view('welcome');
+    });
+
     Route::middleware('auth:peserta')->name('peserta.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::put('dashboard/edit/{id}', [DashboardController::class, 'editProfil'])->name('dashboard-edit');

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Pelatihan;
-use App\Models\PesertaDetail;
 use Illuminate\Http\Request;
+use App\Models\PesertaDetail;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class FrontendController extends Controller
 {
@@ -71,6 +72,7 @@ class FrontendController extends Controller
         PesertaDetail::updateOrCreate([
             'peserta_id' => $request->peserta_id,
             'pelatihan_id' => $request->pelatihan_id,
+            'nama_usaha' => $request->nama_usaha,
             'fc_kk' => $fckk,
             'fc_ktp' => $fcktp,
             'surat_sehat' => $s_sehat,
@@ -80,5 +82,10 @@ class FrontendController extends Controller
         ]);
 
         return redirect()->route('peserta.dashboard');
+    }
+
+    public function qrcode()
+    {
+        QrCode::generate('Make me into a QrCode!');
     }
 }
