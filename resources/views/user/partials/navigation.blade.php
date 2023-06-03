@@ -3,7 +3,7 @@
         <nav id="navigation" class="navigation navigation-landscape">
             <div class="nav-header">
                 <a class="nav-brand" href="#">
-                    <img src="{{ asset('front/img/logo.png') }}" class="logo" alt="" />
+                    <img src="https://bdimakassar.kemenperin.go.id/new/images/icon/bdi3.png" class="logo" alt="" style="max-width: 250px"/>
                 </a>
                 <div class="nav-toggle"></div>
                 <div class="mobile_nav">
@@ -29,8 +29,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="nav-menus-wrapper">
-                <ul class="nav-menu justify-content-center">
+            <div class="nav-menus-wrapper d-flex justify-content-between">
+                <ul class="nav-menu mx-auto">
                     <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ route('user.home') }}">Home</a>
                     </li>
                     <li class="{{ request()->is('pelatihan*') ? 'active' : '' }}"><a

@@ -11,34 +11,23 @@
 
 @section('content')
     <!-- ============================ Hero Banner  Start================================== -->
-    <div class="hero_banner image-cover image_bottom h6_bg">
+    <div class="hero_banner image-cover image_bottom"
+        style="background:#f7f8f9 url({{ asset('front/img/banner-1.png') }}) no-repeat;">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="simple-search-wrap text-left">
-                        <div class="hero_search-2">
-                            <h1 class="banner_title mb-4">The Best<br>e-Learning Cources For<br><span class="light">Better
-                                    Future</span></h1>
-                            <p class="font-lg mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore.</p>
-                            <div class="inline_btn">
-                                <a href="explore-category.html" class="btn theme-bg text-white">Get Started</a>
-                                <a href="explore-category.html" class="btn light_btn">Become An Instructor</a>
-                            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-10 col-sm-12">
+                    <div class="simple-search-wrap">
+                        <div class="hero_search-2 text-center">
+                            <h1 class="banner_title mb-4">Balai Diklat Industri Makassar</h1>
+                            <p class="font-lg mb-4">Adanya revolusi industri 4.0 yang terjadi secara global akan sangat
+                                mempengaruhi industri di Indonesia oleh karena itu Kementerian Perindustrian merespon dengan
+                                melakukan perubahan pada organisasi. Terkait Balai Diklat Industri diteribitkan Peraturan
+                                Menteri Perindustrian Nomor 2 Tahun 2022 yang menerapkan pemangkasan birokasi sehingga Balai
+                                Diklat Industri Makassar dapat bergerak dengan lebih efektif dan efisien serta memperluas
+                                spesialisasi Balai Diklat Industri Makassar menjadi bidang agro, pangan, dan fitofarmaka
+                                dengan spesialis penunjang desain kemasan industri.</p>
+                                {{-- <p>Balai Diklat Industri Makassar - Kementerian Perindustrian RI : Terlatih, Kompeten, Siap Kerja</p> --}}
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="side_block extream_img">
-                        <div class="list_crs_img">
-                            <img src="{{ asset('front/img/img-1.png') }}" class="img-fluid elsio cirl animate-fl-y"
-                                alt="" />
-                            <img src="{{ asset('front/img/img-3.png') }}" class="img-fluid elsio arrow animate-fl-x"
-                                alt="" />
-                            <img src="{{ asset('front/img/img-2.png') }}" class="img-fluid elsio moon animate-fl-x"
-                                alt="" />
-                        </div>
-                        <img src="{{ asset('front/img/st-3.png') }}" class="img-fluid" alt="" />
                     </div>
                 </div>
             </div>
@@ -46,58 +35,13 @@
     </div>
     <!-- ============================ Hero Banner End ================================== -->
 
-    <!-- ================================ Tag Award ================================ -->
-    <section class="p-0">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="crp_box fl_color ovr_top">
-                        <div class="row align-items-center">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                <div class="dro_140">
-                                    <div class="dro_141 de"><i class="fa fa-journal-whills"></i></div>
-                                    <div class="dro_142">
-                                        <h6>200+ Cources</h6>
-                                        <p>Duis aute irure dolor in voluptate velit esse cillum labore .</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                <div class="dro_140">
-                                    <div class="dro_141 de"><i class="fa fa-business-time"></i></div>
-                                    <div class="dro_142">
-                                        <h6>Lifetime Access</h6>
-                                        <p>Duis aute irure dolor in voluptate velit esse cillum labore .</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                                <div class="dro_140">
-                                    <div class="dro_141 de"><i class="fa fa-user-shield"></i></div>
-                                    <div class="dro_142">
-                                        <h6>800k+ Enrolled</h6>
-                                        <p>Duis aute irure dolor in voluptate velit esse cillum labore .</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- ================================ Tag Award ================================ -->
-
     <!-- ============================ Cources Start ================================== -->
     <section>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8">
                     <div class="sec-heading center">
-                        <h2>explore Featured <span class="theme-cl">Cources</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <h2><span class="theme-cl">Pelatihan</span> Terbaru</h2>
                     </div>
                 </div>
             </div>
@@ -176,9 +120,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-10 text-center">
                     <div class="sec-heading center mb-4">
-                        <h2>Explore Top <span class="theme-cl">Categories</span></h2>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                            deleniti atque corrupti quos dolores</p>
+                        <h2><span class="theme-cl">Kategori</span> Teratas</h2>
                     </div>
                 </div>
             </div>
@@ -218,9 +160,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8">
                     <div class="sec-heading center">
-                        <h2>Latest News & <span class="theme-cl">Articles</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <h2><span class="theme-cl">Blog</span> Terakhir</h2>
                     </div>
                 </div>
             </div>

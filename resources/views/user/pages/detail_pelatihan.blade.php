@@ -69,7 +69,8 @@
                         <div class="ed_view_features">
                             <div class="eld mb-3">
                                 <ul class="edu_list right">
-                                    <li><i class="ti-user"></i>Pendaftar Saat Ini:<strong>1740 Orang</strong></li>
+                                    <li><i class="ti-user"></i>Pendaftar Saat
+                                        Ini:<strong>{{ $pelatihan->peserta_detail_count }} Pendaftar</strong></li>
                                     <li><i class="ti-files"></i>Jadwal Pendaftaran
                                         :<strong>{{ \Carbon\Carbon::parse($pelatihan->awal_pendaftaran)->isoFormat('D') }}-{{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</strong>
                                     </li>
@@ -98,26 +99,6 @@
     </section>
 
     <!-- ============================ Course Detail ================================== -->
-
-    <!-- ============================ Call To Action ================================== -->
-    <section class="theme-bg call_action_wrap-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="call_action_wrap">
-                        <div class="call_action_wrap-head">
-                            <h3>Do You Have Questions ?</h3>
-                            <span>We'll help you to grow your career and growth.</span>
-                        </div>
-                        <a href="#" class="btn btn-call_action_wrap">Contact Us Today</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ============================ Call To Action End ================================== -->
 @endsection
 
 @push('custom-script')

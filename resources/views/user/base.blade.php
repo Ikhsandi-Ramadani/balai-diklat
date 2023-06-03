@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <title>SkillUp - Online Learning Platform</title>
+    <title>Balai Diklat Industri Makassar</title>
     @include('user.partials.style')
     @stack('custom-style')
 
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
 
         @yield('content')
-        
+
         <!-- ============================ Footer Start ================================== -->
         @include('user.partials.footer')
         <!-- ============================ Footer End ================================== -->

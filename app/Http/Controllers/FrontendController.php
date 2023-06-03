@@ -36,13 +36,13 @@ class FrontendController extends Controller
 
     public function pelatihan()
     {
-        $pelatihans = Pelatihan::all();
+        $pelatihans = Pelatihan::withCount('peserta_detail')->get();
         return view('user.pages.pelatihan', compact('pelatihans'));
     }
 
     public function detail_pelatihan($slug)
     {
-        $pelatihan = Pelatihan::where('slug', $slug)->first();
+        $pelatihan = Pelatihan::where('slug', $slug)->withCount('peserta_detail')->first();
         return view('user.pages.detail_pelatihan', compact('pelatihan'));
     }
 

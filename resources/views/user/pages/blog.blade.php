@@ -2,18 +2,17 @@
 
 @section('content')
     <!-- ============================ Page Title Start================================== -->
-    <section class="page-title bg-cover" style="background:url(https://via.placeholder.com/1920x1200)no-repeat;"
-        data-overlay="8">
+    <section class="page-title">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
 
                     <div class="breadcrumbs-wrap">
-                        <h1 class="breadcrumb-title text-light">Latest News</h1>
-                        <nav class="transparent">
-                            <ol class="breadcrumb p-0">
-                                <li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
-                                <li class="breadcrumb-item active theme-cl" aria-current="page">Blogs</li>
+                        <h1 class="breadcrumb-title">Blog</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb p-0 bg-white">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active theme-cl" aria-current="page">Blog</li>
                             </ol>
                         </nav>
                     </div>
@@ -25,18 +24,8 @@
     <!-- ============================ Page Title End ================================== -->
 
     <!-- ============================ article Start ================================== -->
-    <section class="min">
+    <section class="gray">
         <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-8">
-                    <div class="sec-heading center">
-                        <h2>Latest News & <span class="theme-cl">Articles</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                </div>
-            </div>
 
             <div class="row justify-content-center">
 

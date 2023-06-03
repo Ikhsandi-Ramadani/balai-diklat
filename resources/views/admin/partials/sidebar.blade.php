@@ -58,15 +58,9 @@
     <ul class="menu-inner py-1">
         <!-- Page -->
         <li class="menu-item {{ request()->is('admin/') ? 'active' : '' }}">
-            <a href="index.html" class="menu-link">
+            <a href="{{ route('admin.dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Page 1">Page 1</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="page-2.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Page 2">Page 2</div>
+                <div>Dashboard</div>
             </a>
         </li>
 
