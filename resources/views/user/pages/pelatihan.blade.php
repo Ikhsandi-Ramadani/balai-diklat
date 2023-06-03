@@ -116,10 +116,10 @@
                                 <div class="crs_flex">
                                     <div class="crs_fl_first">
                                         <div class="crs_tutor">
-                                            <div class="crs_tutor_thumb"><a href="instructor-detail.html"><img
+                                            <div class="crs_tutor_thumb"><a href="#"><img
                                                         src="https://via.placeholder.com/500x500" class="img-fluid circle"
                                                         alt="" /></a></div>
-                                            <div class="crs_tutor_name"><a href="instructor-detail.html">BDI Makassar</a>
+                                            <div class="crs_tutor_name"><a href="#">BDI Makassar</a>
                                             </div>
                                         </div>
                                     </div>

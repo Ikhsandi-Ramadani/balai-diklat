@@ -86,5 +86,11 @@
                 <div>Pelatihan</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->is('admin/blog*') ? 'active' : '' }}">
+            <a href="{{ route('admin.blog.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>Blog</div>
+            </a>
+        </li>
     </ul>
 </aside>

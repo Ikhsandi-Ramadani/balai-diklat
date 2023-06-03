@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Pelatihan;
 use Illuminate\Http\Request;
@@ -15,7 +16,22 @@ class FrontendController extends Controller
     {
         $categories = Category::withCount('pelatihan')->get();
         $pelatihans = Pelatihan::latest()->take(6)->get();
-        return view('user.pages.home', compact('categories', 'pelatihans'));
+        $blogs = Blog::latest()->take(3)->get();
+        return view('user.pages.home', compact('categories', 'pelatihans', 'blogs'));
+    }
+
+    public function blog()
+    {
+        $blogs = Blog::all();
+        return view('user.pages.blog', compact('blogs'));
+    }
+
+    public function detail_blog($slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+        $categories = Category::withCount('blog')->get();
+        $blogs = Blog::latest()->take(5)->get();
+        return view('user.pages.detail_blog', compact('blog', 'categories', 'blogs'));
     }
 
     public function pelatihan()

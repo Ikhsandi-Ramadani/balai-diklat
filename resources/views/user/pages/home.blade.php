@@ -228,95 +228,42 @@
             <div class="row justify-content-center">
 
                 <!-- Single blog Grid -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="blg_grid_box">
-                        <div class="blg_grid_thumb">
-                            <a href="blog-detail.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid"
-                                    alt=""></a>
-                        </div>
-                        <div class="blg_grid_caption">
-                            <div class="blg_tag dark"><span>Marketing</span></div>
-                            <div class="blg_title">
-                                <h4><a href="blog-detail.html">How To Improove Digital Marketing for Fast SEO</a>
-                                </h4>
+                @forelse ($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blg_grid_box">
+                            <div class="blg_grid_thumb">
+                                <a href="blog-detail.html"><img src="/images/blog/{{ $blog->image }}" class="img-fluid"
+                                        alt=""></a>
                             </div>
-                            <div class="blg_desc">
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum</p>
+                            <div class="blg_grid_caption">
+                                <div class="blg_tag dark"><span>{{ $blog->category->nama }}</span></div>
+                                <div class="blg_title">
+                                    <h4><a href="blog-detail.html">{{ $blog->title }}</a>
+                                    </h4>
+                                </div>
+                                <div class="blg_desc">
+                                    <p>{!! Str::words($blog->description, 10, '....') !!}
+                                    </p>
+                                </div>
+                                <div class="blg_more"><a href="blog-detail.html">Lihat Selengkapnya</a></div>
                             </div>
-                            <div class="blg_more"><a href="blog-detail.html">Reading Continues</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single blog Grid -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="blg_grid_box">
-                        <div class="blg_grid_thumb">
-                            <a href="blog-detail.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid"
-                                    alt=""></a>
-                        </div>
-                        <div class="blg_grid_caption">
-                            <div class="blg_tag dark"><span>Marketing</span></div>
-                            <div class="blg_title">
-                                <h4><a href="blog-detail.html">How To Improove Digital Marketing for Fast SEO</a>
-                                </h4>
-                            </div>
-                            <div class="blg_desc">
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum</p>
-                            </div>
-                            <div class="blg_more"><a href="blog-detail.html">Reading Continues</a></div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <h3>Belum ada postingan</h3>
+                @endforelse
 
-                <!-- Single blog Grid -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="blg_grid_box">
-                        <div class="blg_grid_thumb">
-                            <a href="blog-detail.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid"
-                                    alt=""></a>
-                        </div>
-                        <div class="blg_grid_caption">
-                            <div class="blg_tag dark"><span>Marketing</span></div>
-                            <div class="blg_title">
-                                <h4><a href="blog-detail.html">How To Improove Digital Marketing for Fast SEO</a>
-                                </h4>
-                            </div>
-                            <div class="blg_desc">
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum</p>
-                            </div>
-                            <div class="blg_more"><a href="blog-detail.html">Reading Continues</a></div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-8 mt-2">
+                    <div class="text-center"><a href="{{ route('user.pelatihan') }}"
+                            class="btn btn-md theme-bg-light theme-cl">Lihat Selengkapnya</a></div>
+                </div>
             </div>
 
         </div>
     </section>
     <div class="clearfix"></div>
     <!-- ============================ article End ================================== -->
-
-    <!-- ============================ Call To Action ================================== -->
-    <section class="theme-bg call_action_wrap-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="call_action_wrap">
-                        <div class="call_action_wrap-head">
-                            <h3>Do You Have Questions ?</h3>
-                            <span>We'll help you to grow your career and growth.</span>
-                        </div>
-                        <a href="#" class="btn btn-call_action_wrap">Contact Us Today</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ============================ Call To Action End ================================== -->
 @endsection

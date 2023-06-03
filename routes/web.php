@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\PelatihanController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PelatihanController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 Route::prefix('/')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('user.login');
@@ -19,10 +20,7 @@ Route::prefix('/')->group(function () {
     Route::get('/pelatihan', [FrontendController::class, 'pelatihan'])->name('user.pelatihan');
     Route::get('/pelatihan/{slug}', [FrontendController::class, 'detail_pelatihan'])->name('user.detail-pelatihan');
     Route::get('/blog', [FrontendController::class, 'blog'])->name('user.blog');
-
-    Route::get('/qrcode', function () {
-        return view('welcome');
-    });
+    Route::get('/blog/{slug}', [FrontendController::class, 'detail_blog'])->name('user.detail-blog');
 
     Route::middleware('auth:peserta')->name('peserta.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -48,6 +46,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('download/{peserta}', [PelatihanController::class, 'downloadPeserta'])->name('pelatihan.peserta.download');
 
         Route::resource('pelatihan', PelatihanController::class);
+        Route::resource('blog', BlogController::class);
 
         Route::get('/logout', [AdminDashboardController::class, 'logout'])->name('logout');
     });
