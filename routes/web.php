@@ -48,6 +48,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('pelatihan', PelatihanController::class);
         Route::resource('blog', BlogController::class);
 
+        Route::get('peserta', [AdminDashboardController::class, 'peserta'])->name('peserta.index');
+
         Route::get('/logout', [AdminDashboardController::class, 'logout'])->name('logout');
     });
 });

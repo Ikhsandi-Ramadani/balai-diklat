@@ -86,5 +86,11 @@
                 <div>Blog</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->is('admin/peserta*') ? 'active' : '' }}">
+            <a href="{{ route('admin.peserta.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div>Peserta</div>
+            </a>
+        </li>
     </ul>
 </aside>
