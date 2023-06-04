@@ -5,8 +5,7 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-center">
                     <div class="footer_widget">
-                        <img src="https://bdimakassar.kemenperin.go.id/new/images/icon/bdi%20white.png"
-                            class="img-footer small mb-2 my-auto" alt=""
+                        <img src="{{ asset('logo2.png') }}" class="img-footer small mb-2 my-auto" alt=""
                             style="max-height: 60px; width: 100%; max-width: 339px; }" />
                     </div>
                 </div>

@@ -3,7 +3,7 @@
         <nav id="navigation" class="navigation navigation-landscape">
             <div class="nav-header">
                 <a class="nav-brand" href="#">
-                    <img src="https://bdimakassar.kemenperin.go.id/new/images/icon/bdi3.png" class="logo" alt="" style="max-width: 250px"/>
+                    <img src="{{ asset('logo.png') }}" class="logo" alt="" style="max-width: 250px" />
                 </a>
                 <div class="nav-toggle"></div>
                 <div class="mobile_nav">

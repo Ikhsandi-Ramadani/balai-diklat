@@ -50,9 +50,9 @@
                                 <td>{{ $peserta->peserta->nik }}</td>
                                 <td>{{ $peserta->peserta->no_telp }}</td>
                                 <td>
-                                    @if ($peserta->is_approve == 'pending')
+                                    @if ($peserta->status == 'pending')
                                         <span class="badge bg-label-warning">Pending</span>
-                                    @elseif ($peserta->is_approve == 'disetujui')
+                                    @elseif ($peserta->status == 'disetujui')
                                         <span class="badge bg-label-success">Disetujui</span>
                                     @else
                                         <span class="badge bg-label-danger">Ditolak</span>

@@ -7,11 +7,14 @@
 
 <body>
     <center>
-        <img src="{{ public_path() . '/data-peserta/' . $peserta->nama . '/' . $peserta->peserta_detail->foto }}" width="150"
+        <img src="{{ public_path() . '/data-peserta/' . $peserta->peserta->nama . '/' . $peserta->foto }}" width="150"
             height="150" alt="">
-        <h3 class="bottom">{{ $peserta->nama }}</h3>
-        <h4>{{ $peserta->email }}</h4>
-        {{-- <img src="2.jpg" width="100" height="100" alt=""> --}}
+        <h3 class="bottom">{{ $peserta->peserta->nama }}</h3>
+        <h4>{{ $peserta->peserta->email }}</h4>
+        <img
+            src="data:image/png;base64, {{ base64_encode(
+                QrCode::format('png')->size(150)->generate($data),
+            ) }} ">
     </center>
 </body>
 

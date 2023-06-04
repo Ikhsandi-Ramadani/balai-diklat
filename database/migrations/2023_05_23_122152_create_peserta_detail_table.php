@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('surat_usaha')->nullable();
             $table->string('ijazah')->nullable();
             $table->string('foto')->nullable();
-            $table->enum('is_approve', ['pending', 'ditolak', 'disetujui'])->default('pending');
+            $table->enum('status', ['pending', 'ditolak', 'disetujui', 'lulus'])->default('pending');
             $table->longText('keterangan')->nullable();
             $table->timestamps();
 

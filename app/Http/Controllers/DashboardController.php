@@ -59,8 +59,13 @@ class DashboardController extends Controller
 
     public function cetak($id)
     {
-        $peserta = Peserta::where('id', $id)->first();
-        $pdf = PDF::loadView('user.pages.cetak', compact('peserta'));
+        $peserta = PesertaDetail::where('peserta_id', $id)->first();
+
+        $char = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+        $key = array_rand($char);
+        $data = "Pelatihan  : " . $peserta->pelatihan->nama . "\n" . "No. Kamar : " .  rand(1, 75) . $char[$key] . "\n" . "No. Kursi : " .  rand(1, 75) . "\n" . "Alamat   : " .  $peserta->peserta->alamat;
+
+        $pdf = PDF::loadView('user.pages.cetak', compact('peserta', 'data'));
         $pdf->set_paper(array(0, 0, 297.64, 419.53));
         return $pdf->download('Kartu.pdf');
     }

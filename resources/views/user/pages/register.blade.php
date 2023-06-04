@@ -11,7 +11,7 @@
                         @csrf
                         <div class="crs_log_wrap">
                             <div class="crs_log__thumb">
-                                <img src="https://via.placeholder.com/1920x1200" class="img-fluid" alt="" />
+                                <img src="{{ asset('register.jpg') }}" class="img-fluid" alt="" />
                             </div>
                             <div class="crs_log__caption">
                                 <div class="rcs_log_123">

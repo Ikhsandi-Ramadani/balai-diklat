@@ -193,10 +193,10 @@
                                                             <div class="crs_tutor">
                                                                 <div class="crs_tutor_name">
                                                                     <h6>Status verifikasi :
-                                                                        @if ($peserta->peserta_detail->is_approve == 'pending')
+                                                                        @if ($peserta->peserta_detail->status == 'pending')
                                                                             <span
                                                                                 class="badge badge-warning">Pending</span>
-                                                                        @elseif ($peserta->peserta_detail->is_approve == 'disetujui')
+                                                                        @elseif ($peserta->peserta_detail->status == 'disetujui')
                                                                             <span
                                                                                 class="badge badge-success">Disetujui</span>
                                                                         @else
@@ -211,10 +211,14 @@
                                                         </div>
                                                         <div class="crs_fl_last">
                                                             <div class="crs_linkview">
-                                                                @if ($peserta->peserta_detail->is_approve == 'disetujui')
+                                                                @if ($peserta->peserta_detail->status == 'disetujui')
                                                                     <a href="{{ route('peserta.cetak', $peserta->id) }}"
                                                                         class="btn btn_view_detail btn-success text-light"><i
-                                                                            class="fa-solid fa-print"></i> Cetak</a>
+                                                                            class="fa-solid fa-print"></i> Cetak KP</a>
+                                                                @elseif ($peserta->peserta_detail->status == 'lulus')
+                                                                    <a href="{{ route('peserta.cetak', $peserta->id) }}"
+                                                                        class="btn btn_view_detail btn-success text-light"><i
+                                                                            class="fa-solid fa-print"></i> Sertifikat</a>
                                                                 @else
                                                                     <a href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}"
                                                                         class="btn btn_view_detail btn-warning text-light"><i

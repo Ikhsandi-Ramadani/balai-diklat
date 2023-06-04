@@ -70,14 +70,13 @@
                                     <label class="form-label">Status Verifikasi</label>
                                     <div class="col mt-2">
                                         <div class="form-check form-check-inline form-check-success">
-                                            <input name="is_approve" class="form-check-input" type="radio"
-                                                value="disetujui"
-                                                {{ $peserta->is_approve == 'disetujui' ? 'checked' : '' }}>
+                                            <input name="status" class="form-check-input" type="radio" value="disetujui"
+                                                {{ $peserta->status == 'disetujui' ? 'checked' : '' }}>
                                             <label class="form-check-label">Disetujui</label>
                                         </div>
                                         <div class="form-check form-check-inline form-check-danger">
-                                            <input name="is_approve" class="form-check-input" type="radio" value="ditolak"
-                                                {{ $peserta->is_approve == 'ditolak' ? 'checked' : '' }}>
+                                            <input name="status" class="form-check-input" type="radio" value="ditolak"
+                                                {{ $peserta->status == 'ditolak' ? 'checked' : '' }}>
                                             <label class="form-check-label">Ditolak</label>
                                         </div>
                                     </div>

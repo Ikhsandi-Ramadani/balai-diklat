@@ -156,7 +156,7 @@ class PelatihanController extends Controller
         $peserta = PesertaDetail::where('peserta_id', $peserta)->where('pelatihan_id', $id)->first();
 
         $peserta->update([
-            'is_approve' => $request->is_approve,
+            'status' => $request->status,
             'keterangan' => $request->keterangan
         ]);
         return redirect()->route('admin.pelatihan.peserta', $id);
