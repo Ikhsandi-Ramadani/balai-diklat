@@ -6,6 +6,15 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pelatihan/</span> Tambah</h4>
         <div class="card mb-4">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form class="card-body" action="{{ route('admin.pelatihan.store') }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="row g-3">
