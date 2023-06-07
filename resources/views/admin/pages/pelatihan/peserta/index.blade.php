@@ -52,6 +52,8 @@
                                 <td>
                                     @if ($peserta->status == 'pending')
                                         <span class="badge bg-label-warning">Pending</span>
+                                    @elseif ($peserta->status == 'lulus')
+                                        <span class="badge bg-label-success">Lulus</span>
                                     @elseif ($peserta->status == 'disetujui')
                                         <span class="badge bg-label-success">Disetujui</span>
                                     @else

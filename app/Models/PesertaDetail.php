@@ -22,7 +22,7 @@ class PesertaDetail extends Model
      *
      * @var array
      */
-    protected $fillable = ['peserta_id', 'pelatihan_id', 'nama_usaha', 'fc_kk', 'fc_ktp', 'surat_sehat', 'surat_usaha', 'ijazah', 'foto', 'status', 'keterangan'];
+    protected $fillable = ['peserta_id', 'pelatihan_id', 'nama_usaha', 'fc_kk', 'fc_ktp', 'surat_sehat', 'surat_usaha', 'ijazah', 'foto', 'status', 'keterangan', 'asal'];
 
     public function peserta()
     {

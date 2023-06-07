@@ -199,6 +199,8 @@
                                                                         @elseif ($peserta->peserta_detail->status == 'disetujui')
                                                                             <span
                                                                                 class="badge badge-success">Disetujui</span>
+                                                                        @elseif ($peserta->peserta_detail->status == 'lulus')
+                                                                            <span class="badge badge-success">Lulus</span>
                                                                         @else
                                                                             <span class="badge badge-danger">Ditolak</span>
                                                                         @endif
@@ -216,13 +218,10 @@
                                                                         class="btn btn_view_detail btn-success text-light"><i
                                                                             class="fa-solid fa-print"></i> Cetak KP</a>
                                                                 @elseif ($peserta->peserta_detail->status == 'lulus')
-                                                                    <a href="{{ route('peserta.cetak', $peserta->id) }}"
+                                                                    <a href="{{ route('peserta.sertifikat', $peserta->id) }}"
                                                                         class="btn btn_view_detail btn-success text-light"><i
                                                                             class="fa-solid fa-print"></i> Sertifikat</a>
                                                                 @else
-                                                                    <a href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}"
-                                                                        class="btn btn_view_detail btn-warning text-light"><i
-                                                                            class="fa-solid fa-pen-to-square"></i> Edit</a>
                                                                 @endif
                                                             </div>
                                                         </div>

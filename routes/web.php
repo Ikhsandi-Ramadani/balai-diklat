@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PelatihanController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 Route::prefix('/')->group(function () {
+    Route::get('sertifikat', [DashboardController::class, 'sertifikat'])->name('user');
     Route::get('/login', [AuthController::class, 'login'])->name('user.login');
     Route::post('/login-post', [AuthController::class, 'postLogin'])->name('user.login-post');
     Route::get('/register', [AuthController::class, 'register'])->name('user.register');
@@ -29,6 +30,7 @@ Route::prefix('/')->group(function () {
         Route::post('daftar', [FrontendController::class, 'postDaftarPelatihan'])->name('post-daftar');
 
         Route::get('cetak/{id}', [DashboardController::class, 'cetak'])->name('cetak');
+        Route::get('sertifikat/{id}', [DashboardController::class, 'sertifikat'])->name('sertifikat');
     });
 });
 
@@ -40,7 +42,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::resource('kategori', CategoryController::class);
 
-        Route::get('pelatihan/{id}', [PelatihanController::class, 'peserta'])->name('pelatihan.peserta');
+        Route::get('pelatihan/peserta/{id}', [PelatihanController::class, 'peserta'])->name('pelatihan.peserta');
         Route::get('pelatihan/{id}/peserta/{peserta}', [PelatihanController::class, 'editPeserta'])->name('pelatihan.peserta.edit');
         Route::put('pelatihan/{id}/peserta/{peserta}', [PelatihanController::class, 'postEditPeserta'])->name('pelatihan.peserta.edit.post');
         Route::get('download/{peserta}', [PelatihanController::class, 'downloadPeserta'])->name('pelatihan.peserta.download');

@@ -79,6 +79,11 @@
                                                 {{ $peserta->status == 'ditolak' ? 'checked' : '' }}>
                                             <label class="form-check-label">Ditolak</label>
                                         </div>
+                                        <div class="form-check form-check-inline form-check-success">
+                                            <input name="status" class="form-check-input" type="radio" value="lulus"
+                                                {{ $peserta->status == 'lulus' ? 'checked' : '' }}>
+                                            <label class="form-check-label">Lulus</label>
+                                        </div>
                                     </div>
                                 </div>
 

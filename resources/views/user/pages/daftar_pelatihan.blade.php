@@ -54,6 +54,11 @@
                                         <textarea name="alamat" cols="30" rows="10" class="form-control" required>{{ $peserta->alamat }}</textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label>Asal Daerah</label>
+                                        <input type="text" name="asal" class="form-control" required
+                                            value="{{ $peserta->asal }}" />
+                                    </div>
+                                    <div class="form-group">
                                         <label>FC Kartu Keluarga</label>
                                         <input type="file" name="fc_kk" class="form-control" required />
                                     </div>

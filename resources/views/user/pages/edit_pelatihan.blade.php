@@ -21,7 +21,8 @@
                         @csrf
                         <div class="crs_log_wrap">
                             <div class="crs_log__thumb">
-                                <img src="/images/pelatihan/{{ $peserta->pelatihan->gambar }}" class="img-fluid" alt="" />
+                                <img src="/images/pelatihan/{{ $peserta->pelatihan->gambar }}" class="img-fluid"
+                                    alt="" />
                             </div>
                             <div class="crs_log__caption">
                                 <div class="rcs_log_124">
@@ -51,6 +52,11 @@
                                     <div class="form-group">
                                         <label>Alamat</label>
                                         <textarea name="alamat" cols="30" rows="10" class="form-control" required>{{ $peserta->alamat }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Asal Daerah</label>
+                                        <input type="text" name="asal" class="form-control" required
+                                            value="{{ $peserta->asal }}" />
                                     </div>
                                     <div class="form-group">
                                         <label>FC Kartu Keluarga</label>

@@ -85,6 +85,36 @@ class FrontendController extends Controller
         $namaFoto = "foto" . "." . $foto->getClientOriginalExtension();
         $foto->move($destinationPath, $namaFoto);
 
+        $check = PesertaDetail::where('peserta_id', $request->peserta_id)->first();
+
+        if ($check) {
+            $check->update([
+                'peserta_id' => $request->peserta_id,
+                'pelatihan_id' => $request->pelatihan_id,
+                'nama_usaha' => $request->nama_usaha,
+                'fc_kk' => $fckk,
+                'fc_ktp' => $fcktp,
+                'surat_sehat' => $s_sehat,
+                'surat_usaha' => $s_usaha,
+                'ijazah' => $namaIjazah,
+                'foto' => $namaFoto,
+                'asal' => $request->asal
+            ]);
+        } else {
+            PesertaDetail::Create([
+                'peserta_id' => $request->peserta_id,
+                'pelatihan_id' => $request->pelatihan_id,
+                'nama_usaha' => $request->nama_usaha,
+                'fc_kk' => $fckk,
+                'fc_ktp' => $fcktp,
+                'surat_sehat' => $s_sehat,
+                'surat_usaha' => $s_usaha,
+                'ijazah' => $namaIjazah,
+                'foto' => $namaFoto,
+                'asal' => $request->asal
+            ]);
+        }
+
         PesertaDetail::updateOrCreate([
             'peserta_id' => $request->peserta_id,
             'pelatihan_id' => $request->pelatihan_id,
@@ -95,6 +125,7 @@ class FrontendController extends Controller
             'surat_usaha' => $s_usaha,
             'ijazah' => $namaIjazah,
             'foto' => $namaFoto,
+            'asal' => $request->asal
         ]);
 
         return redirect()->route('peserta.dashboard');
