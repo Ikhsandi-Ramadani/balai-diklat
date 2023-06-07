@@ -40,7 +40,7 @@ class PelatihanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
         ]);
         $slug = Str::slug($request->nama);
         $gambar = $request->file('gambar');
@@ -87,7 +87,7 @@ class PelatihanController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request, [
-            'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg',
         ]);
         $pelatihan = Pelatihan::findorfail($id);
         $slug = Str::slug($request->nama);
