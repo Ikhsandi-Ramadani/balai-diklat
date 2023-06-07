@@ -15,7 +15,7 @@ class FrontendController extends Controller
     public function home()
     {
         $categories = Category::withCount('pelatihan')->get();
-        $pelatihans = Pelatihan::latest()->take(6)->get();
+        $pelatihans = Pelatihan::latest()->take(6)->withCount('peserta_detail')->get();
         $blogs = Blog::latest()->take(3)->get();
         return view('user.pages.home', compact('categories', 'pelatihans', 'blogs'));
     }

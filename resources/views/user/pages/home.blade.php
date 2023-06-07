@@ -63,7 +63,7 @@
                                         <div class="crs_cates cl_8"><span>{{ $pelatihan->category->nama }}</span></div>
                                     </div>
                                     <div class="crs_fl_last">
-                                        <div class="crs_inrolled"><strong>8,350</strong>Pendaftar</div>
+                                        <div class="crs_inrolled"><strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar</div>
                                     </div>
                                 </div>
                                 <div class="crs_title">
