@@ -26,7 +26,7 @@
                                 Diklat Industri Makassar dapat bergerak dengan lebih efektif dan efisien serta memperluas
                                 spesialisasi Balai Diklat Industri Makassar menjadi bidang agro, pangan, dan fitofarmaka
                                 dengan spesialis penunjang desain kemasan industri.</p>
-                                {{-- <p>Balai Diklat Industri Makassar - Kementerian Perindustrian RI : Terlatih, Kompeten, Siap Kerja</p> --}}
+                            {{-- <p>Balai Diklat Industri Makassar - Kementerian Perindustrian RI : Terlatih, Kompeten, Siap Kerja</p> --}}
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,8 @@
                                         <div class="crs_cates cl_8"><span>{{ $pelatihan->category->nama }}</span></div>
                                     </div>
                                     <div class="crs_fl_last">
-                                        <div class="crs_inrolled"><strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar</div>
+                                        <div class="crs_inrolled">
+                                            <strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar</div>
                                     </div>
                                 </div>
                                 <div class="crs_title">
@@ -172,20 +173,21 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="blg_grid_box">
                             <div class="blg_grid_thumb">
-                                <a href="blog-detail.html"><img src="/images/blog/{{ $blog->image }}" class="img-fluid"
-                                        alt=""></a>
+                                <a href="{{ route('user.detail-blog', $blog->slug) }}"><img
+                                        src="/images/blog/{{ $blog->image }}" class="img-fluid" alt=""></a>
                             </div>
                             <div class="blg_grid_caption">
                                 <div class="blg_tag dark"><span>{{ $blog->category->nama }}</span></div>
                                 <div class="blg_title">
-                                    <h4><a href="blog-detail.html">{{ $blog->title }}</a>
+                                    <h4><a href="{{ route('user.detail-blog', $blog->slug) }}">{{ $blog->title }}</a>
                                     </h4>
                                 </div>
                                 <div class="blg_desc">
                                     <p>{!! Str::words($blog->description, 10, '....') !!}
                                     </p>
                                 </div>
-                                <div class="blg_more"><a href="blog-detail.html">Lihat Selengkapnya</a></div>
+                                <div class="blg_more"><a href="{{ route('user.detail-blog', $blog->slug) }}">Lihat
+                                        Selengkapnya</a></div>
                             </div>
                         </div>
                     </div>
