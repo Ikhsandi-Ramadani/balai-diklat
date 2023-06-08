@@ -199,7 +199,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8 mt-2">
-                    <div class="text-center"><a href="{{ route('user.pelatihan') }}"
+                    <div class="text-center"><a href="{{ route('user.blog') }}"
                             class="btn btn-md theme-bg-light theme-cl">Lihat Selengkapnya</a></div>
                 </div>
             </div>
