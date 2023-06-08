@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Peserta;
+use App\Models\Category;
+use App\Models\Pelatihan;
+use Illuminate\Http\Request;
+use App\Models\PesertaDetail;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -12,7 +16,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.dashboard.index');
+        $blogCount = Blog::all()->count();
+        $pelatihanCount = Pelatihan::all()->count();
+        $pesertaCount = PesertaDetail::all()->count();
+        $categoryCount = Category::all()->count();
+        $lastPeserta = PesertaDetail::latest()->take(5)->get();
+        $lastPelatihan = Pelatihan::latest()->take(5)->get();
+        // dd($blogCount);
+        return view('admin.pages.dashboard.index',compact('blogCount','pelatihanCount','pesertaCount','categoryCount','lastPeserta','lastPelatihan'));
     }
 
     public function peserta()
