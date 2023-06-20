@@ -84,9 +84,7 @@
                         {{-- {{ dd($pelatihan->akhir_pendaftaran) }}
                         {{ dd(date('Y-m-d')) }} --}}
                         <div class="ed_view_link">
-                            @if (auth('peserta')->check() &&
-                                    $pelatihan->peserta_detail_count < $pelatihan->kuota &&
-                                    $pelatihan->akhir_pendaftaran < date('Y-m-d'))
+                            @if (auth('peserta')->check() && $pelatihan->peserta_detail_count < $pelatihan->kuota)
                                 <a class="btn theme-bg enroll-btn"
                                     href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}">Daftar
                                     Sekarang<i class="ti-angle-right"></i></a>
