@@ -71,7 +71,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
-                                        <input type="password" name="password" class="form-control" required />
+                                        <input type="password" name="password" class="form-control" required id="myInput"/>
+                                        <!-- An element to toggle between password visibility -->
+                                        <input type="checkbox" class="mt-3" onclick="myFunction()">Lihat Password
                                     </div>
                                     <div class="form-group">
                                         <button type="submit"
@@ -96,3 +98,16 @@
     </section>
     <!-- ============================ Login Wrap ================================== -->
 @endsection
+
+@push('custom-script')
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+@endpush

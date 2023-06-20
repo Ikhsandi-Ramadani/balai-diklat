@@ -33,6 +33,7 @@
                             <th>Gambar</th>
                             <th>Nama</th>
                             <th>Kategori</th>
+                            <th>Kuota</th>
                             <th>Pendaftaran</th>
                             <th>Pelaksanaan</th>
                             <th>Peserta</th>
@@ -46,6 +47,7 @@
                                 </td>
                                 <td>{{ $pelatihan->nama }}</td>
                                 <td>{{ $pelatihan->category->nama }}</td>
+                                <td>{{ $pelatihan->kuota }} Orang</td>
                                 <td>{{ \Carbon\Carbon::parse($pelatihan->awal_pendaftaran)->isoFormat('D') }} -
                                     {{ \Carbon\Carbon::parse($pelatihan->akhir_pendaftaran)->isoFormat('D MMMM Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($pelatihan->awal_pelatihan)->isoFormat('D') }} -

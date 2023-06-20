@@ -21,7 +21,7 @@ class Pelatihan extends Model
      *
      * @var array
      */
-    protected $fillable = ['category_id', 'gambar', 'nama', 'deskripsi', 'awal_pendaftaran', 'akhir_pendaftaran', 'awal_pelatihan', 'akhir_pelatihan', 'slug'];
+    protected $fillable = ['category_id', 'gambar', 'nama', 'deskripsi', 'kuota', 'awal_pendaftaran', 'akhir_pendaftaran', 'awal_pelatihan', 'akhir_pelatihan', 'slug'];
 
     public function category()
     {

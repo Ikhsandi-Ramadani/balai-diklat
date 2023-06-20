@@ -40,6 +40,12 @@
                         <textarea class="form-control" id="body" name="deskripsi">{!! $pelatihan->deskripsi !!}</textarea>
                     </div>
                     <div class="col-md-6">
+                        <label class="form-label">Kuota Pelatihan</label>
+                        <input type="number" class="form-control" required name="kuota"
+                            value="{{ $pelatihan->kuota }}" />
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
                         <label class="form-label">Tanggal Awal Pendaftaran</label>
                         <input type="date" class="form-control" value="{{ $pelatihan->awal_pendaftaran }}" required
                             name="awal_pendaftaran" />

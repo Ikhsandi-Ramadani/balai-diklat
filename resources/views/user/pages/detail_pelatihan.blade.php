@@ -69,6 +69,7 @@
                         <div class="ed_view_features">
                             <div class="eld mb-3">
                                 <ul class="edu_list right">
+                                    <li><i class="ti-user"></i>Kuota:<strong>{{ $pelatihan->kuota }} Orang</strong></li>
                                     <li><i class="ti-user"></i>Pendaftar Saat
                                         Ini:<strong>{{ $pelatihan->peserta_detail_count }} Pendaftar</strong></li>
                                     <li><i class="ti-files"></i>Jadwal Pendaftaran
@@ -80,11 +81,19 @@
                                 </ul>
                             </div>
                         </div>
+                        {{-- {{ dd($pelatihan->akhir_pendaftaran) }}
+                        {{ dd(date('Y-m-d')) }} --}}
                         <div class="ed_view_link">
-                            @if (auth('peserta')->check())
+                            @if (auth('peserta')->check() &&
+                                    $pelatihan->peserta_detail_count < $pelatihan->kuota &&
+                                    $pelatihan->akhir_pendaftaran < date('Y-m-d'))
                                 <a class="btn theme-bg enroll-btn"
                                     href="{{ route('peserta.daftar-pelatihan', $pelatihan->slug) }}">Daftar
                                     Sekarang<i class="ti-angle-right"></i></a>
+                            @elseif ($pelatihan->peserta_detail_count == $pelatihan->kuota)
+                                <button class="btn btn-secondary enroll-btn" disabled>Kuota Penuh</button>
+                            @elseif ($pelatihan->akhir_pendaftaran >= date('Y-m-d'))
+                                <button class="btn btn-secondary enroll-btn" disabled>Pendaftaran Ditutup</button>
                             @else
                                 <a class="btn theme-bg enroll-btn" href="#" onclick="alert()">Daftar
                                     Sekarang<i class="ti-angle-right"></i></a>

@@ -64,7 +64,8 @@
                                     </div>
                                     <div class="crs_fl_last">
                                         <div class="crs_inrolled">
-                                            <strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar</div>
+                                            <strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="crs_title">
@@ -77,7 +78,8 @@
                                                 -
                                                 {{ \Carbon\Carbon::parse($pelatihan->akhir_pelatihan)->isoFormat('D MMMM Y') }}</span>
                                         </li>
-                                        <li><i class="fa fa-signal text-warning"></i><span>Pemula</span></li>
+                                        <li><i class="fa fa-user text-warning"></i><span>{{ $pelatihan->kuota }}
+                                                Orang</span></li>
                                     </ul>
                                 </div>
                             </div>

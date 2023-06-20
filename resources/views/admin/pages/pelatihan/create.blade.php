@@ -47,6 +47,11 @@
                         <textarea class="form-control" id="body" placeholder="Enter the Description" name="deskripsi"></textarea>
                     </div>
                     <div class="col-md-6">
+                        <label class="form-label">Kuota Pelatihan</label>
+                        <input type="number" class="form-control" required name="kuota" />
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
                         <label class="form-label">Tanggal Awal Pendaftaran</label>
                         <input type="date" class="form-control" required name="awal_pendaftaran" />
                     </div>
