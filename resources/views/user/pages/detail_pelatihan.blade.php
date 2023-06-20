@@ -92,7 +92,7 @@
                                     Sekarang<i class="ti-angle-right"></i></a>
                             @elseif ($pelatihan->peserta_detail_count == $pelatihan->kuota)
                                 <button class="btn btn-secondary enroll-btn" disabled>Kuota Penuh</button>
-                            @elseif ($pelatihan->akhir_pendaftaran >= date('Y-m-d'))
+                            @elseif ($pelatihan->akhir_pendaftaran <= date('Y-m-d'))
                                 <button class="btn btn-secondary enroll-btn" disabled>Pendaftaran Ditutup</button>
                             @else
                                 <a class="btn theme-bg enroll-btn" href="#" onclick="alert()">Daftar
