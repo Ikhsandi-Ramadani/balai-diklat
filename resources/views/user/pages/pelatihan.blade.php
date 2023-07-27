@@ -6,6 +6,18 @@
             width: 50%;
             flex: 0 0 50%;
         }
+
+        .col-container {
+            min-height: 300px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .col {
+            padding: 10px;
+            margin: 0 10px;
+            flex: 1;
+        }
     </style>
 @endpush
 
@@ -37,9 +49,10 @@
         <div class="container">
 
             <div class="row justify-content-center">
-                @forelse ($pelatihans as $pelatihan)
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="crs_grid">
+                <div class="col-container">
+                    @forelse ($pelatihans as $pelatihan)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mx-2 crs_grid col">
+                            {{-- <div class="crs_grid col"> --}}
                             <div class="crs_grid_thumb">
                                 <a href="{{ route('user.detail-pelatihan', $pelatihan->slug) }}" class="crs_detail_link">
                                     <img src="/images/pelatihan/{{ $pelatihan->gambar }}" class="img-fluid rounded"
@@ -53,7 +66,8 @@
                                     </div>
                                     <div class="crs_fl_last">
                                         <div class="crs_inrolled">
-                                            <strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar</div>
+                                            <strong>{{ $pelatihan->peserta_detail_count }}</strong>Pendaftar
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="crs_title">
@@ -84,11 +98,12 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- </div> --}}
                         </div>
-                    </div>
-                @empty
-                    <h1>Belum Ada Pelatihan</h1>
-                @endforelse
+                    @empty
+                        <h1>Belum Ada Pelatihan</h1>
+                    @endforelse
+                </div>
             </div>
 
         </div>
