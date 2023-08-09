@@ -6,6 +6,18 @@
             width: 50%;
             flex: 0 0 50%;
         }
+
+        .col-container {
+            min-height: 300px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .col {
+            padding: 10px;
+            margin: 0 10px;
+            flex: 1;
+        }
     </style>
 @endpush
 
@@ -41,16 +53,16 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8">
                     <div class="sec-heading center">
-                        <h2><span class="theme-cl">CCCCCC</span> Terbaru</h2>
+                        <h2><span class="theme-cl">Pelatihan</span> Terbaru</h2>
                     </div>
                 </div>
             </div>
 
             <div class="row justify-content-center">
-
-                @forelse ($pelatihans as $pelatihan)
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="crs_grid">
+                <div class="col-container">
+                    @forelse ($pelatihans as $pelatihan)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mx-2 crs_grid col">
+                            {{-- <div class="crs_grid col"> --}}
                             <div class="crs_grid_thumb">
                                 <a href="{{ route('user.detail-pelatihan', $pelatihan->slug) }}" class="crs_detail_link">
                                     <img src="/images/pelatihan/{{ $pelatihan->gambar }}" class="img-fluid rounded"
@@ -87,21 +99,21 @@
                                 <div class="crs_flex">
                                     <div class="crs_fl_first">
                                         <div class="crs_tutor">
-                                            <div class="crs_tutor_thumb"><a href="instructor-detail.html"><img
+                                            <div class="crs_tutor_thumb"><a href="#"><img
                                                         src="https://via.placeholder.com/500x500" class="img-fluid circle"
                                                         alt="" /></a></div>
-                                            <div class="crs_tutor_name"><a href="instructor-detail.html">BDI Makassar</a>
+                                            <div class="crs_tutor_name"><a href="#">BDI Makassar</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {{-- </div> --}}
                         </div>
-                    </div>
-                @empty
-                    <h1>Belum Ada Pelatihan</h1>
-                @endforelse
-
+                    @empty
+                        <h1>Belum Ada Pelatihan</h1>
+                    @endforelse
+                </div>
             </div>
 
             <div class="row justify-content-center">
