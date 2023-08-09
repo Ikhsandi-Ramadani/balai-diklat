@@ -2,9 +2,7 @@
     <div class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column">
         <div class="mb-2 mb-md-0">
             ©
-            <script>
-                document.write(new Date().getFullYear());
-            </script>
+            2023
             Balai Diklat Makassar
         </div>
     </div>

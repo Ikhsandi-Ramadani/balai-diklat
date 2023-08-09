@@ -42,7 +42,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td><img src="/images/kategori/{{ $category->icon }}" width="100" height=""></td>
-                                <td>{{ $category->nama }}</td>
+                                <td>{{ $category->nama }} </td>
                                 {{-- <td>{{ $category->slug }}</td> --}}
                                 <td>
                                     <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal"

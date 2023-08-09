@@ -41,7 +41,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8">
                     <div class="sec-heading center">
-                        <h2><span class="theme-cl">Pelatihan</span> Terbaru</h2>
+                        <h2><span class="theme-cl">CCCCCC</span> Terbaru</h2>
                     </div>
                 </div>
             </div>
